@@ -1,6 +1,9 @@
 <template>
   <div class="container mx-auto">
     <div class="slider">
+      <div class="prev" @click="prevSlideHandler">
+        ←
+      </div>
       <no-ssr>
         <slider ref="slider" :options="options" @slide="slide" @tap="onTap" @init="onInit">
           <slideritem>
@@ -20,6 +23,9 @@
           </slideritem>
         </slider>
       </no-ssr>
+      <div class="next" @click="nextSlideHandler">
+        →
+      </div>
     </div>
   </div>
 </template>
@@ -68,7 +74,8 @@ export default {
 
 <style>
 .slider {
-  max-width: 1200px;
+  display: flex;
+  align-items: center;
   height: 280px;
   margin: auto;
 }
@@ -79,5 +86,22 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.next,
+.prev {
+  flex: none;
+  line-height: 1;
+  font-size: 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  margin: 0 10px;
 }
 </style>
